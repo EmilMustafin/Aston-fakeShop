@@ -6,8 +6,8 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
         'plugin:react/jsx-runtime',
+        'plugin:@typescript-eslint/recommended',
         'plugin:react-hooks/recommended',
         'plugin:perfectionist/recommended-natural',
         'plugin:import/recommended',
