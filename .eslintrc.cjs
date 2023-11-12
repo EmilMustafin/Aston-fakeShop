@@ -39,6 +39,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    '@typescript-eslint/no-explicit-any': 'error',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-console': 'error',
