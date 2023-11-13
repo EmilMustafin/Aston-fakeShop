@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage" : "/Aston-fakeShop",
+  "homepage" : "https://emilmustafin.github.io/Aston-fakeShop/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
