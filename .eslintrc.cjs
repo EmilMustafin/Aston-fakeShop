@@ -9,10 +9,11 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:perfectionist/recommended-natural',
     'plugin:import/recommended',
+    'plugin:perfectionist/recommended-natural',
     'plugin:prettier/recommended',
   ],
+  ignorePatterns: ['dist', 'node_modules'],
   overrides: [
     {
       env: {
@@ -40,11 +41,26 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/no-explicit-any': 'error',
+    curly: 'error',
     'import/no-unresolved': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+        'newlines-between': 'always-and-inside-groups',
+      },
+    ],
     'import/prefer-default-export': 'off',
-    'no-console': 'error',
+    'no-console': 'warn',
     'no-unused-expressions': 'warn',
     'no-unused-vars': 'error',
+    'perfectionist/sort-objects': [
+      'error',
+      {
+        order: 'asc',
+        type: 'natural',
+      },
+    ],
     'prettier/prettier': 'error',
     'react/jsx-no-useless-fragment': 'warn',
     'react-hooks/exhaustive-deps': 'warn',

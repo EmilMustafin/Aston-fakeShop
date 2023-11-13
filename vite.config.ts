@@ -3,6 +3,6 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Aston-fakeShop',
+  base: '/Aston-fakeShop/',
   plugins: [react()],
 });
