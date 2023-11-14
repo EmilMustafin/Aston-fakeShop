@@ -19,7 +19,7 @@ jobs:
           node-version: '20.x'
       - name: Install dependencies
         run: npm install
-      -name: Build file
+      - name: Build file
         run: npm run build
 
        // deploy the application to netlify
