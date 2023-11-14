@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 export const Layout = () => {
   return (
     <>
-      <h6>Layout</h6>
+      <h3>Layout</h3>
       <Outlet />
     </>
   );
