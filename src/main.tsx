@@ -9,7 +9,7 @@ import { store } from './store/store';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/Aston-fakeShop/'}>
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>

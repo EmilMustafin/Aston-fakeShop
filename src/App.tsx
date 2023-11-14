@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route element={<Layout />} path="/">
-        <Route path="/signin" />
+        <Route path="/signIN" />
         <Route path="/signup" />
         <Route path="/" />
         <Route path="/product/:id" />
