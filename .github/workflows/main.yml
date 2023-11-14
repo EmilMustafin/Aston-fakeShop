@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy and Netlify
+name: Deploy Netlify+Vite
 
 on:
   # Runs on pushes targeting the default branch
@@ -30,7 +30,7 @@ jobs:
         uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: './dist'
-          production-branch: main
+          production-branch: prod
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
