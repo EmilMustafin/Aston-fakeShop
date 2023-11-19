@@ -6,14 +6,22 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:import/recommended',
-    'plugin:perfectionist/recommended-natural',
+    'plugin:import/typescript',
     'plugin:prettier/recommended',
   ],
+  settings: {
+    'import/resolver': {
+      typescript: {
+        project: './tsconfig.json',
+      },
+    },
+  },
   ignorePatterns: ['dist', 'node_modules'],
+
   overrides: [
     {
       env: {
@@ -30,15 +38,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-    'react-refresh',
-    'react',
-    'react-hooks',
-    'import',
-    'perfectionist',
-    'prettier',
-  ],
+  plugins: ['@typescript-eslint', 'react-refresh', 'react', 'react-hooks', 'import', 'prettier'],
   rules: {
     '@typescript-eslint/no-explicit-any': 'error',
     curly: 'error',
@@ -46,21 +46,28 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
-        'newlines-between': 'always-and-inside-groups',
+        alphabetize: {
+          /* ignore case. Options: [true, false] */
+          caseInsensitive: true,
+          /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
+          order: 'asc',
+        },
+        groups: [
+          'builtin', // Built-in imports (come from NodeJS native) go first
+          'external', // <- External imports
+          'internal', // <- Absolute imports
+          ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
+          'index', // <- index imports
+          'unknown', // <- unknown
+        ],
+        'newlines-between': 'always',
       },
     ],
     'import/prefer-default-export': 'off',
     'no-console': 'warn',
+    'no-restricted-exports': ['error', { restrictDefaultExports: { direct: true } }],
     'no-unused-expressions': 'warn',
     'no-unused-vars': 'error',
-    'perfectionist/sort-objects': [
-      'error',
-      {
-        order: 'asc',
-        type: 'natural',
-      },
-    ],
     'prettier/prettier': 'error',
     'react/jsx-no-useless-fragment': 'warn',
     'react-hooks/exhaustive-deps': 'warn',
