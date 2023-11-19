@@ -1,11 +1,11 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './SignupPage.scss';
 import { Input } from '../../components/ui/Input/Input';
 
 const SignupPage = () => {
-  const [errorMessage, setErrorMessage] = useState('');
+  // const [errorMessage, setErrorMessage] = useState('');
   return (
     <div className="form_container">
       <form className="form_input">
@@ -18,7 +18,7 @@ const SignupPage = () => {
           placeholder="Enter Password"
           label="Confirm Password"
         />
-        {errorMessage && <p className="error-message-class">{errorMessage}</p>}
+        {/* {errorMessage && <p className="error-message-class">{errorMessage}</p>} */}
         <button type="submit" className="button_signup">
           Register
         </button>
