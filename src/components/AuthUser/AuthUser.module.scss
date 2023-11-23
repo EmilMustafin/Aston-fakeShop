@@ -1,0 +1,37 @@
+.menu_list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.menu_item:not(:last-child) {
+margin: 0px 48px 0px 0px;
+}
+.favorites_link {
+font-weight: 900;
+color: #fff;
+}
+.favorites_link:hover {
+text-decoration: underline;
+}
+.login_button {
+  border: 2px solid #100e0e;
+  min-height: 42px;
+  border-radius: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 36px;
+  letter-spacing: 0.2px;
+  font-weight: 900;
+  text-align: center;
+  max-width: 80px;
+  color: #fff;
+  background-color: #6dabe4;
+}
+
+.login_button:hover {
+  color: #100e0e;
+  border: 2px solid #fff;
+}

@@ -46,32 +46,34 @@ module.exports = {
     'import/order': [
       'error',
       {
-        alphabetize: {
-          /* ignore case. Options: [true, false] */
-          caseInsensitive: true,
-          /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
-          order: 'asc',
-        },
-        groups: [
-          'builtin', // Built-in imports (come from NodeJS native) go first
-          'external', // <- External imports
-          'internal', // <- Absolute imports
-          ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
-          'index', // <- index imports
-          'unknown', // <- unknown
+        groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+        pathGroups: [
+          {
+            pattern: '@/**/**',
+            group: 'parent',
+            position: 'before',
+          },
         ],
-        'newlines-between': 'always',
+        alphabetize: { order: 'asc' },
       },
     ],
     'import/prefer-default-export': 'off',
     'no-console': 'warn',
     'no-restricted-exports': ['error', { restrictDefaultExports: { direct: true } }],
     'no-unused-expressions': 'warn',
-    'no-unused-vars': 'error',
+    'no-unused-vars': ['error', { vars: 'local' }],
     'prettier/prettier': 'error',
     'react/jsx-no-useless-fragment': 'warn',
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'no-param-reassign': ['error', { props: false }],
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: true,
+      },
+    ],
   },
 };

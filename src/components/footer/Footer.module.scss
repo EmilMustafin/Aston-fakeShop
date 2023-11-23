@@ -16,12 +16,11 @@
   box-sizing: content-box;
 }
 
-.footer__container{
+.footer__container {
   display: flex;
   min-height: 100px;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid black;
 }
 
 footer h1 {
@@ -48,4 +47,3 @@ footer .icon_links a:hover {
 footer .icon_links h1 {
   display: none;
 }
-
