@@ -4,6 +4,32 @@
   padding: 80px 80px;
   background: #fff;
 }
+.label_input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: large;
+  color: #222;
+  font-weight: bold;
+  font-weight: 700;
+  margin: 20px 0 0;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 30px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #999;
+  outline: none;
+  color: #222;
+  margin: 20px 0 0;
+}
+
+.input:focus {
+  outline: pink;
+}
 .title_input {
   font-weight: 700;
   color: #222;
@@ -36,7 +62,7 @@
 }
 .button_signup {
   border-radius: 20px;
-  
+
   background: #6dabe4;
   color: #ffffff;
   font-size: 12px;

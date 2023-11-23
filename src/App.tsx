@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 
-import './App.scss';
 import { Layout } from './components/layout/Layout';
 import { FavoritePage } from './pages/FavoritesPage/FavoritePage';
 import { HomePage } from './pages/HomePage/HomePage';
