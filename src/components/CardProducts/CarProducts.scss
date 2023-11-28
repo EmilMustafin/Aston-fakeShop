@@ -17,8 +17,8 @@
       overflow: hidden;
       img {
         width: 100%;
-        aspect-ratio: 1;
-        object-fit: cover;
+        height: 200px;
+        object-fit: contain;
         background-color: white;
         border-radius: 0.375rem;
       }
@@ -27,7 +27,6 @@
         padding-top: 5px;
 
         .product_title {
-         
           color: #232323;
           font-weight: bold;
         }
@@ -37,6 +36,33 @@
           font-weight: 600;
           font-size: 0.875rem;
           color: #232323;
+        }
+      }
+    }
+    .button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      margin-left: 100px;
+      border-radius: 30px;
+      border: 2px solid #232323;
+      &.bookmarked {
+        border-color: red; 
+      }
+      
+      &:hover{
+        border: 2px solid red;
+      }
+      .icon {
+        color: black;
+        transition: color 0.3s ease;
+        &.bookmarked {
+          border-color: red;
+          color: red;
+        }
+        &:hover {
+          color: red; 
         }
       }
     }

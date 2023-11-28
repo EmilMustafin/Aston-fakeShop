@@ -1,0 +1,87 @@
+.detail-product {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+
+  .product-image {
+    display: flex;
+    flex: 0 0 auto;
+    width: 50%;
+    img {
+      width: 450px;
+      height: 450px;
+
+      border-radius: 0.375rem;
+      vertical-align: middle;
+    }
+  }
+
+  .product-info {
+    flex: 0 0 auto;
+    width: 50%;
+
+    .title_products {
+      font-size: 2rem;
+      margin: 1.5rem;
+
+      @media (min-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-weight: bolder;
+      font-size: 2rem;
+      margin: 1.5rem;
+      @media (min-width: 768px) {
+        font-size: 2.5rem;
+      }
+
+      &.review {
+        display: flex;
+        align-items: center;
+        gap: 1px;
+      }
+
+      &.description {
+        margin: 1.5rem;
+        font-size: 1rem;
+
+        @media (min-width: 768px) {
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+}
+
+ 
+  .button_detail {
+    margin: 150px 0 0 150px;
+    border-radius: 50px;
+    border: 2px solid #323232;  
+    color: white;
+    transition: color 0.3s ease;
+
+    &.bookmarked {
+      border-color: red; // цвет primary в Tailwind CSS
+    }
+    &:hover {
+      border-color: red; // цвет primary в Tailwind CSS
+    }
+  }
+
+  .icon {
+    color: black;
+    transition: color 0.3s ease;
+    &.bookmarked {
+      color: red; // цвет primary в Tailwind CSS
+    }
+    &:hover {
+      color: red; // цвет primary в Tailwind CSS
+    }
+  }
+

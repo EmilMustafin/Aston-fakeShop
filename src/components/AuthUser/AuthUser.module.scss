@@ -4,16 +4,15 @@
   flex-wrap: wrap;
 }
 
-
 .menu_item:not(:last-child) {
-margin: 0px 48px 0px 0px;
+  margin: 0px 48px 0px 0px;
 }
 .favorites_link {
-font-weight: 900;
-color: #fff;
+  font-weight: 900;
+  color: #fff;
 }
 .favorites_link:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 .login_button {
   border: 2px solid #100e0e;

@@ -3,7 +3,7 @@
   width: 100%;
   left: 0px;
   top: 0px;
-  background-color: #3279c0;
+  background-color: #3182ce;
   border-bottom: #100e0e;
   .nav_list {
     @include _container;
@@ -23,14 +23,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #fff;
       .input_search {
         border: 1px solid #040405;
         border-right: none;
         padding: 8px 5px;
         outline: none;
-        color: black;
+        color: white;
         background-color: transparent;
-        color: black;
         font-size: 14px;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       }
@@ -79,4 +79,9 @@
 .login_button:hover {
   color: #100e0e;
   border: 2px solid #fff;
+}
+input::placeholder {
+  color: black;
+  font-size: 1.2em;
+  font-style: italic;
 }
