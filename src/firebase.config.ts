@@ -4,12 +4,12 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyAtCmTmKKWg9j8AmOXba3ugHkdlTcfSSZ4',
-  authDomain: 'fake-store-aston.firebaseapp.com',
-  projectId: 'fake-store-aston',
-  storageBucket: 'fake-store-aston.appspot.com',
-  messagingSenderId: '288063949527',
-  appId: '1:288063949527:web:58a68cfbd355a2af1bbe92',
+  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+  authDomain: import.meta.env.VITE_FIREBASE_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_ID,
 };
 
 const app = initializeApp(firebaseConfig);

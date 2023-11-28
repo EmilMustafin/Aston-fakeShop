@@ -48,13 +48,16 @@
   color: red;
 }
 .register_item {
+
   font-size: 1.125rem;
   line-height: 1.75rem;
   text-align: center;
   margin-top: 1rem;
   text-decoration: none;
+  color: #222
 }
 .register_button {
+  margin-left: 20px;
   font-weight: 800;
 }
 .register_button:hover {

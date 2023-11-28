@@ -1,0 +1,11 @@
+.favorite_page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .button_clear {
+    display: flex;
+    align-items: center;
+    width: 200px;
+  }
+}
