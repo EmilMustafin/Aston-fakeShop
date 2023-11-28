@@ -10,6 +10,7 @@ interface InputProps extends React.PropsWithoutRef<JSX.IntrinsicElements['input'
   placeholder: string;
   type?: string;
   required?: boolean;
+  autoComplete: string;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
@@ -20,15 +21,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       <label htmlFor={id} className="label_input">
         {label}
       </label>
-      <input
-        {...props}
-        ref={ref}
-        autoFocus
-        required
-        placeholder={placeholder}
-        type={type}
-        className="input"
-      />
+      <input {...props} ref={ref} autoFocus required placeholder={placeholder} type={type} className="input" />
     </>
   );
 });

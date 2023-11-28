@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { IProductsProps } from '../../inerfaces/IfakeProducts';
+import { IProduct } from '../../interfaces/types';
 
 export const fakestoreApi = createApi({
   reducerPath: 'fake_products',
@@ -8,17 +8,16 @@ export const fakestoreApi = createApi({
     baseUrl: 'https://fakestoreapi.com/',
   }),
   endpoints: builder => ({
-    getProducts: builder.query<IProductsProps[], void>({
+    getProducts: builder.query<IProduct[], void>({
       query: () => `/products`,
     }),
-    getCategories: builder.query<IProductsProps[], string>({
+    getCategories: builder.query<IProduct[], string>({
       query: category_id => `/products/category/${category_id}`,
     }),
-    getDetailProduct: builder.query<IProductsProps[], string>({
-      query: id => `/products/category/${id}`,
+    getDetailProduct: builder.query<IProduct, number>({
+      query: id => `/products/${id}`,
     }),
   }),
 });
 
-export const { useGetProductsQuery, useGetCategoriesQuery, useGetDetailProductQuery } =
-  fakestoreApi;
+export const { useGetProductsQuery, useGetCategoriesQuery, useGetDetailProductQuery } = fakestoreApi;
