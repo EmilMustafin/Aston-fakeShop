@@ -1,23 +1,50 @@
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { Layout } from './components/layout/Layout';
-import { FavoritePage } from './pages/FavoritesPage/FavoritePage';
-import { HomePage } from './pages/HomePage/HomePage';
-import { ProductInfo } from './pages/ProductInfo/ProductInfo';
+import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
+import { Loader } from './components/Loader/Loader';
 import { SigninPage } from './pages/SignIn/SigninPage';
-import { SignupPage } from './pages/SignUp/SignupPage';
+import {
+  ProductInfo,
+  FavoritesPage,
+  LayoutPage,
+  HomePage,
+  SearchHistoryPage,
+  SearchPage,
+  SignUpPage,
+} from './routing/lazy';
+import { Protected } from './routing/protectedRoute';
 
 export function App() {
   return (
-    <Routes>
-      <Route element={<Layout />} path="/">
-        <Route element={<SigninPage />} path="signin" />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route index element={<HomePage />} />
-        <Route path="/product/:id" element={<ProductInfo />} />
-        <Route element={<FavoritePage />} path="/favorites" />
-        <Route path="/search/:query" />
-      </Route>
-    </Routes>
+    <ErrorBoundary>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route element={<LayoutPage />} path="/">
+            <Route path="/signin" element={<SigninPage />} />
+            <Route element={<SignUpPage />} path="/signup" />
+            <Route index element={<HomePage />} />
+            <Route element={<ProductInfo />} path="/product/:id" />
+            <Route
+              path="/history"
+              element={
+                <Protected>
+                  <SearchHistoryPage />
+                </Protected>
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Protected>
+                  <FavoritesPage />
+                </Protected>
+              }
+            />
+            <Route element={<SearchPage />} path="/search" />
+          </Route>
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
