@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useUpdateDocument } from '../../hooks/useUpdateDocument';
-import { IProduct } from '../../interfaces/types';
+import { IProduct } from '../../types/type';
+import { useUpdateDocument } from '../../utils/user-data';
 import { BookmarkResult } from '../BookmarkResult/BookmarkResult';
 import './FavoriteList.scss';
 

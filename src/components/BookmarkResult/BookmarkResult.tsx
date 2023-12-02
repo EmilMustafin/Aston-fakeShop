@@ -1,8 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
 import { HiCheck } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import { IProduct } from '../../interfaces/types';
+import { IProduct } from '../../types/type';
 import './BookmarkResult.scss';
+import { Loader } from '../Loader/Loader';
 
 interface BookmarkResultProps {
   products: IProduct[];
@@ -12,16 +13,19 @@ interface BookmarkResultProps {
 }
 
 const BookmarkResult = ({ products, isLoading, selections, setSelections }: BookmarkResultProps) => {
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
-      {products.length === 0 && !isLoading && (
+      {products.length === 0 && (
         <div className="favorite_empty">
           <div className="empty_error ">
-            <img src="/public/error.png" alt="" className="error" />
+            <img src="/error.png" alt="" className="error" />
           </div>
           <p className="empty_text">Your cart is empty!</p>
         </div>
       )}
+
       <ul className="favorites_container">
         {products.length > 0 &&
           products.map(item => (
