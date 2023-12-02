@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Input } from '../../components/ui/Input/Input';
-import { useSignUp } from '../../hooks/useSignup';
+import { useSignUp } from '../../utils/user-data';
 import './SignupPage.scss';
 
 const SignupPage = () => {

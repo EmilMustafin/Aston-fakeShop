@@ -12,20 +12,24 @@ export interface IProduct {
 }
 
 export interface THistory {
+  id: string;
+  url: string;
   query: string;
 }
 
 export interface User {
-  displayName: string | null;
   email: string | null;
-  emailVerified: boolean;
-  photoURL: string | null;
   uid: string;
 }
+export interface SearchParams {
+  query: string;
+}
 export interface IState {
-  user: {
-    email: string;
-    password: string;
+  auth: {
+    user: {
+      email: string;
+      password: string;
+    };
   };
 }
 export interface IFormValues {

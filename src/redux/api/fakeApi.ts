@@ -1,6 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { FetchBaseQueryMeta, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { IProduct } from '../../interfaces/types';
+import { IProduct } from '../../types/type';
 
 export const fakestoreApi = createApi({
   reducerPath: 'fake_products',
@@ -17,7 +17,14 @@ export const fakestoreApi = createApi({
     getDetailProduct: builder.query<IProduct, number>({
       query: id => `/products/${id}`,
     }),
+    searchProducts: builder.query<IProduct[], string>({
+      query: () => `/products`,
+      transformResponse: (response: IProduct[], _: FetchBaseQueryMeta | undefined, arg: string) => {
+        return [...response.filter(product => product.title.toLowerCase().includes(arg.toLowerCase()))];
+      },
+    }),
   }),
 });
 
-export const { useGetProductsQuery, useGetCategoriesQuery, useGetDetailProductQuery } = fakestoreApi;
+export const { useGetProductsQuery, useGetCategoriesQuery, useGetDetailProductQuery, useSearchProductsQuery } =
+  fakestoreApi;

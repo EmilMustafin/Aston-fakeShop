@@ -19,28 +19,6 @@
       padding: 0 20px;
       text-decoration: none;
     }
-    .form_input {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      .input_search {
-        border: 1px solid #040405;
-        border-right: none;
-        padding: 8px 5px;
-        outline: none;
-        color: white;
-        background-color: transparent;
-        font-size: 14px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      }
-      .button_search {
-        background-color: #4b5563;
-        padding: 4.5px;
-        border: 1px solid #6b7280;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      }
-    }
     .menu_list {
       display: flex;
       align-items: center;

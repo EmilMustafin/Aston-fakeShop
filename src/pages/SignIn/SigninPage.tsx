@@ -1,26 +1,16 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Input } from '../../components/ui/Input/Input';
-import { auth } from '../../firebase.config';
+
 import './SigninPage.scss';
-import { IFormValues } from '../../interfaces/types';
+
+import { useSignUp } from '../../utils/user-data';
 
 const SigninPage = () => {
-  const { register, handleSubmit } = useForm<IFormValues>();
-  const navigate = useNavigate();
-
-  const handleLogin = (data: IFormValues) => {
-    signInWithEmailAndPassword(auth, data.email, data.password)
-      .then(() => navigate('/'))
-      .catch(error => {
-        console.error('Registration error in Firebase:', error);
-      });
-  };
+  const { register, handleSubmit } = useSignUp();
   return (
     <div className="form_container">
-      <form className="form_input" onSubmit={handleSubmit(handleLogin)}>
+      <form className="form_input" onSubmit={handleSubmit}>
         <h1 className="title_input">Sign In</h1>
         <Input
           {...register('email')}

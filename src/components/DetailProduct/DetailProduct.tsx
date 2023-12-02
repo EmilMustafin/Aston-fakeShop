@@ -1,32 +1,58 @@
 import { AiFillHeart } from 'react-icons/ai';
 import './DetailProduct.scss';
-import { useBookmark } from '../../hooks/useBookmarked';
-import { IProduct } from '../../interfaces/types';
 
-const DetailProduct = ({ ...products }: IProduct) => {
-  const { isBookmarked, toggleBookmark } = useBookmark(products?.id);
+import { IProduct } from '../../types/type';
+import { useBookmark } from '../../utils/user-data';
+import { Loader } from '../Loader/Loader';
+import { Star } from '../Star/Star';
+
+interface DetailProps {
+  isLoading: boolean;
+  id: number;
+  rating_count: number;
+  price: number;
+  title: string;
+  description: string;
+  rate: number;
+  image: string;
+  product: IProduct;
+}
+
+const DetailProduct = ({
+  isLoading,
+  id,
+  rating_count,
+  price,
+  title,
+  image,
+  description,
+  rate,
+  product,
+}: DetailProps) => {
+  const { isBookmarked, toggleBookmark } = useBookmark(id);
 
   const bookmarkedHandler = () => {
-    toggleBookmark(products);
+    toggleBookmark(product);
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <section className="detail-product">
       <div className="product-image">
-        <img src={products?.image} loading="lazy" alt={products?.title} />
-        <div className="button-container">
-          <button onClick={bookmarkedHandler} className={`button_detail ${isBookmarked && 'bookmarked'}`}>
+        <img src={image} loading="lazy" alt={title} />
+        <div className="button-container" />
+      </div>
+      <div className="product-info">
+        <div className="title_products">{title}</div>
+        <p>${price}</p>
+        <Star stars={rate} count={rating_count} />
+        <div>
+          <p className="description">{description}</p>
+          <button onClick={bookmarkedHandler} className={`button_bookmarked ${isBookmarked && 'bookmarked'}`}>
             <AiFillHeart size={90} className={`icon ${isBookmarked && 'bookmarked'}`} />
           </button>
         </div>
-      </div>
-      <div className="product-info">
-        <div className="title_products">{products?.title}</div>
-        <p>${products?.price}</p>
-        <p className="review">
-          Rating {products?.rating?.rate}/5 Count: ({products?.rating?.count})
-        </p>
-        <p className="description">{products?.description}</p>
 
         <hr />
       </div>

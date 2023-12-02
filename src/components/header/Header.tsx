@@ -1,8 +1,7 @@
-import { FiSearch } from 'react-icons/fi';
-
 import { Link } from 'react-router-dom';
 
 import { AuthUser } from '../AuthUser/AuthUser';
+import { SearchForm } from '../SearchForm/SearchForm';
 import { Toggle } from '../ui/toggle/Toggle';
 import st from './Header.module.scss';
 
@@ -15,13 +14,7 @@ const Header = () => {
         <Link to="/" className={st.logo}>
           <img src={logo} alt="logo" title="Fake Shop" className="image_logo" />
         </Link>
-        <form className={st.form_input}>
-          <input required type="search" placeholder="Поиск..." className={st.input_search} />
-
-          <button type="submit" className={st.button_search}>
-            <FiSearch color="white" size={20} title="Search" />
-          </button>
-        </form>
+        <SearchForm />
         <AuthUser />
         <div className={st.toggle_mode}>
           <Toggle />
