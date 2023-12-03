@@ -1,4 +1,4 @@
-import { PropsWithChildren, createContext, memo, useState } from 'react';
+import { PropsWithChildren, createContext, useMemo, useState } from 'react';
 
 type themes = 'dark' | 'light';
 type ThemeContextType = {
@@ -7,14 +7,18 @@ type ThemeContextType = {
 };
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
-const ThemeProvider = memo(({ children }: PropsWithChildren) => {
+const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [theme, setTheme] = useState<themes>('light');
-  document.documentElement.dataset.theme = theme;
-  const toggleTheme = () => {
+  const themeValue = useMemo(() => {
     document.documentElement.dataset.theme = theme;
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
-});
-ThemeProvider.displayName = 'ThemeProvider';
+
+    const toggleTheme = () => {
+      document.documentElement.dataset.theme = theme;
+      setTheme(theme === 'light' ? 'dark' : 'light');
+    };
+    return { theme, toggleTheme };
+  }, [theme]);
+
+  return <ThemeContext.Provider value={themeValue}>{children}</ThemeContext.Provider>;
+};
 export { ThemeProvider, ThemeContext };

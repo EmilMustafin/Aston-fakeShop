@@ -1,6 +1,18 @@
 .section {
   padding: 0.25rem;
   margin-top: 0.25rem;
+  .empty_error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .error {
+      object-fit: cover;
+      width: 900px;
+    }
+    .no-data-message{
+      margin-top: 2.5rem;
+    }
+  }
 
   .cards_item {
     display: flex;

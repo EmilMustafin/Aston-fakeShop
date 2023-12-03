@@ -1,13 +1,14 @@
-import { User } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IUser } from '../../types/type';
 import { deleteSearchHistory, useAuthState } from '../../utils/user-history';
 import styles from './SearchHistoryPage.module.scss';
 
 const SearchHistoryPage = () => {
   const [searchHistory, setSearchHistory] = useState<{ id: string; url: string; query: string }[]>([]);
   const navigate = useNavigate();
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<IUser | null>(null);
+
   useAuthState(setUser, setSearchHistory);
   const handleDeleteUrl = (urlId: string) => {
     deleteSearchHistory(urlId);

@@ -1,13 +1,17 @@
-import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { selectAuthStatus } from '../redux/slices/userSlice';
+import { Loader } from '../components/Loader/Loader';
+import { useAuthentication } from '../utils/user-data';
 
 interface ProtectedProps {
   children: React.ReactNode;
 }
 
 const Protected = ({ children }: ProtectedProps) => {
-  const isSignin = useSelector(selectAuthStatus);
+  const { isSignin, isLoading } = useAuthentication();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   if (!isSignin) {
     return <Navigate to="/signin" replace />;

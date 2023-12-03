@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { auth } from '../../firebase.config';
-import { User } from '../../types/type';
+import { IUser } from '../../types/type';
 import { RootState } from '../store';
 
 type InitialState = {
   authorize: boolean;
-  user: User | null;
+  user: IUser | null;
 };
 
 const initialState: InitialState = {
@@ -29,5 +29,5 @@ const userSlice = createSlice({
 export const { setCurrentUser, logoutUser } = userSlice.actions;
 export const selectAuthInfo = (state: RootState): InitialState => state.auth;
 export const selectAuthStatus = (state: RootState): boolean => state.auth.authorize;
-export const selectAuthUser = (state: RootState): User | null => state.auth.user;
+export const selectAuthUser = (state: RootState): IUser | null => state.auth.user;
 export const user = userSlice.reducer;

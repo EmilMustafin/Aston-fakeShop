@@ -1,11 +1,11 @@
-import { User, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { collection, onSnapshot, query, where, doc, deleteDoc, addDoc } from 'firebase/firestore';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { auth, db } from '../firebase.config';
-import { THistory } from '../types/type';
+import { THistory, IUser } from '../types/type';
 
 export const useAuthState = (
-  setUser: Dispatch<SetStateAction<User | null>>,
+  setUser: Dispatch<SetStateAction<IUser | null>>,
   setSearchHistory: Dispatch<SetStateAction<THistory[]>>,
 ) => {
   useEffect(() => {

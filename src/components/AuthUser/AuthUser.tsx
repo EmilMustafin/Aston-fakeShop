@@ -4,12 +4,12 @@ import { Loader } from '../Loader/Loader';
 import st from './AuthUser.module.scss';
 
 const AuthUser = () => {
-  const { isSignin, logout } = useAuthentication();
+  const { isSignin, logout, isLoading } = useAuthentication();
   const handleLogout = () => {
     logout();
   };
 
-  return !isSignin ? (
+  return !isSignin && isLoading ? (
     <Loader /> && (
       <ul className={st.menu_list}>
         <li className={st.menu_item}>

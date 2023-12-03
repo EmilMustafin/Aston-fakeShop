@@ -3,16 +3,13 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useSearchProductsQuery } from '../../redux/api/fakeApi';
-import { IProduct } from '../../types/type';
 import { saveSearchHistory } from '../../utils/user-history';
 import styles from './SearchForm.module.scss';
 const { Search } = Input;
 
 const SearchForm = () => {
-  const [searchItems, setSearchItems] = useState<IProduct[]>([]);
   const { search: searchParams } = useLocation();
   const query = new URLSearchParams(searchParams).get('query') ?? '';
-  const [selectedItem] = useState(-1);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [searchTerm, setSearchTerm] = useState(query);
   const searchInputRef = useRef<InputRef | null>(null);
@@ -24,9 +21,7 @@ const SearchForm = () => {
     if (!debouncedValue) {
       return;
     }
-
-    setSearchItems(products);
-  }, [debouncedValue, products]);
+  }, [debouncedValue]);
 
   const onSearch = (value: string) => {
     const trimmedValue = value.trim();
@@ -48,7 +43,7 @@ const SearchForm = () => {
         placeholder="Поиск..."
         onSearch={onSearch}
         onFocus={() => setIsSearchFocused(true)}
-        onBlur={() => setTimeout(() => setIsSearchFocused(false), 300)}
+        onBlur={() => setTimeout(() => setIsSearchFocused(false), 100)}
         value={searchTerm}
         enterButton
         ref={searchInputRef}
@@ -57,12 +52,12 @@ const SearchForm = () => {
       {isSearchFocused && searchTerm && (
         <div className={styles.search_list}>
           <ul>
-            {searchItems.length === 0 ? (
+            {products.length === 0 ? (
               <li className={styles.active}>Ничего не найдено</li>
             ) : (
-              searchItems.map(({ id, title }, index) => (
-                <li key={id} className={selectedItem === index ? styles.active : ''}>
-                  <Link to={`/product/${id}`}>{title}</Link>
+              products.map(product => (
+                <li key={product.id} className={product.title === searchTerm ? styles.active : ''}>
+                  <Link to={`/product/${product.id}`}>{product.title}</Link>
                 </li>
               ))
             )}

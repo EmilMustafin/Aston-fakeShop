@@ -17,7 +17,7 @@ export interface THistory {
   query: string;
 }
 
-export interface User {
+export interface IUser {
   email: string | null;
   uid: string;
 }

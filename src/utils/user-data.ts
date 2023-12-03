@@ -10,12 +10,15 @@ import { IFormValues, IProduct } from '../types/type';
 
 const useAuthentication = () => {
   const dispatch = useAppDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   const isSignin = useAppSelector(state => state.auth.user);
 
+  const navigate = useNavigate();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
       if (!user) {
         dispatch(setCurrentUser(null));
+        setIsLoading(true);
         return;
       }
       onSnapshot(doc(db, 'users', user.uid), doc => {
@@ -35,9 +38,10 @@ const useAuthentication = () => {
   const logout = () => {
     signOut(auth);
     dispatch(logoutUser());
+    navigate('/');
   };
 
-  return { isSignin, auth, logout };
+  return { isSignin, auth, logout, isLoading };
 };
 
 export { useAuthentication };
