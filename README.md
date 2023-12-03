@@ -41,6 +41,6 @@
 
 ## 2 уровень (необязательный)
 
--   Используeтся TypeScript[tsconfig.json](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/tsconfig.json)
+-   Используeтся TypeScript[tsconfig.json ](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/tsconfig.json)
 -   Используется Firebase для учетных записей пользователей и их Избранного и Истории поиска.
--   Настроен CI/CD [.github](https://github.com/EmilMustafin/Aston-fakeShop/tree/main/.github)
+-   Настроен CI/CD [.github ](https://github.com/EmilMustafin/Aston-fakeShop/tree/main/.github)
