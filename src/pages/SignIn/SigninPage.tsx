@@ -4,10 +4,10 @@ import { Input } from '../../components/ui/Input/Input';
 
 import './SigninPage.scss';
 
-import { useSignUp } from '../../utils/user-data';
+import { useSignIn } from '../../utils/user-data';
 
 const SigninPage = () => {
-  const { register, handleSubmit } = useSignUp();
+  const { register, handleSubmit } = useSignIn();
   return (
     <div className="form_container">
       <form className="form_input" onSubmit={handleSubmit}>
