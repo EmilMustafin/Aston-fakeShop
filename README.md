@@ -1,4 +1,9 @@
 # ASTON Fake Store
+
+На базе [**Fake Store API**](https://fakestoreapi.com/) от MohammadReza Keikavousi
+
+Реализовано: Мустафин Э.И.
+
 ### Deploy link
 [Fake Store](https://aston-fakeshop.netlify.app)
 
@@ -17,12 +22,12 @@
 -   Есть разделение на умные и глупые компоненты:
     -   Умные: [CardsProducts](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/CardProducts/CarProducts.tsx)
     -   Глупые: [CarsItems](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/CardsItems/CardsItems.tsx)
--   Есть рендеринг списков [PostList](https://github.com/umkurius/aston-project/blob/main/src/components/post-list/PostList.tsx)
+-   Есть рендеринг списков [CardProducts](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/CardProducts/CarProducts.tsx)
 -   Реализована хотя бы одна форма [Signup](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/pages/SignUp/SignupPage.tsx)
 -   Есть применение Контекст API [themeProvider](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/providers/ThemeProvider.tsx)
 -   Есть применение предохранителя [ErrorBoundary](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/ErrorBoundary/ErrorBoundary.tsx), [Fallback](https://github.com/umkurius/aston-project/blob/main/src/components/fallback/Fallback.tsx)
--   Есть хотя бы один кастомный хук [useActions](https://github.com/umkurius/aston-project/blob/main/src/hooks/useActions.ts), [useDebounce](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/hooks/useDebounce.tsx)
--   Хотя бы несколько компонентов используют PropTypes [Button](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/Star/Star.tsx), [PostListItem](https://github.com/umkurius/aston-project/blob/main/src/components/post-list-item/PostListItem.tsx)
+-   Есть хотя бы один кастомный хук [useDispatch](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/hooks/useDispatch.ts), [useDebounce](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/hooks/useDebounce.tsx),[useThemeContext](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/hooks/useThemeContext.tsx)
+-   Хотя бы несколько компонентов используют PropTypes [Button](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/Star/Star.tsx), [FavoriteList](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/FavoriteList/FavoriteList.tsx)
 -   Поиск не должен триггерить много запросов к серверу [SearchPanel](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/components/SearchForm/SearchForm.tsx),
 -   Есть применение lazy + Suspense [Router](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/src/App.tsx)
 
@@ -36,4 +41,6 @@
 
 ## 2 уровень (необязательный)
 
--   Используeтся TypeScript
+-   Используeтся TypeScript[tsconfig.json](https://github.com/EmilMustafin/Aston-fakeShop/blob/main/tsconfig.json)
+-   Используется Firebase для учетных записей пользователей и их Избранного и Истории поиска.
+-   Настроен CI/CD [.github] (https://github.com/EmilMustafin/Aston-fakeShop/tree/main/.github)
