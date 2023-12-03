@@ -23,5 +23,4 @@ export const fakestoreApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useGetCategoriesQuery, useGetDetailProductQuery, useSearchProductsQuery } =
-  fakestoreApi;
+export const { useGetProductsQuery, useGetDetailProductQuery, useSearchProductsQuery } = fakestoreApi;
