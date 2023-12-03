@@ -11,9 +11,6 @@ export const fakestoreApi = createApi({
     getProducts: builder.query<IProduct[], void>({
       query: () => `/products`,
     }),
-    getCategories: builder.query<IProduct[], string>({
-      query: category_id => `/products/category/${category_id}`,
-    }),
     getDetailProduct: builder.query<IProduct, number>({
       query: id => `/products/${id}`,
     }),
